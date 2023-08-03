@@ -17,6 +17,27 @@ string[] ArrayInput(string[] arr) {
     return arr;
 }
 
+int NumberOfRepetitions(string[] arr) {
+    int k = 0;
+    for (int i = 0; i < arr.Length; i++) {
+        if (arr[i].Length < 4) {
+            k++;
+        }
+    }
+    return k;
+}
+string[] ArraySort(string[] arr, int numrep) {
+    string[] arrSort = new string[numrep];
+    int j = 0;
+    for (int i = 0; i < arr.Length; i++) {
+        if (arr[i].Length < 4) {
+            arrSort[j] = arr[i];
+            j++;
+        }
+    }
+    return arrSort;
+}
+
 void ArrayPrint(string[] arr) {
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++) {
@@ -30,4 +51,6 @@ string[] array = new string[4];
 
 ArrayInput(array);
 Console.WriteLine();
-ArrayPrint(array);
+int numrep = NumberOfRepetitions(array);
+string[] arraySort = ArraySort(array, numrep);
+ArrayPrint(arraySort);
